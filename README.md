@@ -3,7 +3,7 @@
 
 ## Project Overview
 
-The client is a recent finance graduate seeking to assist his parents in assessing the performance of stocks for 12 green energy firms over 2017 and 2018. The goal of the project was twofold. First, to assess the performance of the stocks. Second, to refactor VBA code that processes daily performance data for the 12 stocks in order to compute total daily volume and yearly return on closing price. Code was edited to increase compuational efficiency as indicated by run time and accuracy of the results.
+The client is a recent finance graduate seeking to assist his parents in assessing the performance of stocks for 12 green energy firms over 2017 and 2018. The goal of the project was twofold. First, to assess the performance of the stocks. Second, to refactor VBA code that processes daily performance data for the 12 stocks in order to compute total daily volume and yearly return on closing price. Code was edited to increase computational efficiency as indicated by run time and accuracy of the results.
 
 ## Analysis
 
