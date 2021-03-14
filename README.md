@@ -9,9 +9,9 @@ The client is a recent finance graduate seeking to assist his parents in assessi
 
 ### Original Script
 
-The dataset consisted of daily prices (open, high, low, closing) and volume for 12 stock tickers for each day of the year the stocks were traded, for two years (2017 and 2018). The code was designed to ouput total daily volume and percentage change in closing price for each ticker between the opening trading day and the final trading day of a particular year.
+The dataset consisted of daily prices (open, high, low, closing) and volumes for 12 stock tickers for each day of the year the stocks were traded, over two years (2017 and 2018). The code was designed to ouput total daily volume and percentage change in closing price for each ticker between the opening trading day and the final trading day of a particular year.
 
-First, a new worksheet was created to tabulate results. Variables storing the start time and end time were created to measure run time. An input box was created to allow the same code to function for any particular year. Sheet headings and header rows (Ticker, Total Daily Volume, Return) were created within VBA using the *range()* and *cells()* functions (e.g. *Range("A1").Value = "All Stocks (" + yearValue + ")"* and *Cells(3, 1).Value = "Ticker"*)
+First, a new worksheet was created to tabulate results. Variables storing the start time and end time were created to measure run time. An input box was created to allow the same code to function for any particular year. Sheet headings and header rows (Ticker, Total Daily Volume, Return) were created within VBA using the *range()* and *cells()* functions (e.g. *Range("A1").Value = "All Stocks (" + yearValue + ")"* and *Cells(3, 1).Value = "Ticker"*).
 
 A new array holding stock tickers was created, intitialized, and populated as rows using a *for* loop:
 
@@ -45,9 +45,9 @@ The outputs were a table and message box showing run time (see **Results**).
 
 ### Refactored Script
 
-The purpose of refactoring was to edit key areas of the code where it could be streamlined for greater processing efficiency. For instance, rather than creating a single variable for the total daily volume, and updating it continuously in a nested *for* loop, a 12 element array was created told hold the total daily volume corresponding to each ticker. Similar arrays were created for starting and ending price, and these were assigned *single* rather than *double* data typles.
+The purpose of refactoring was to edit key areas of the code where it could be streamlined for greater processing efficiency. For instance, rather than creating a single variable for the total daily volume, and updating it continuously in a nested *for* loop, a 12 element array was created to hold the total daily volume corresponding to each ticker. Similar arrays were created for starting and ending price, and these were assigned *single* rather than *double* data types.
 
-A ticker index variable was created and intialized. The analysis was subsequently carried out by running a single *for* loop over the data rows, with *If* conditonals checking the same conditions as before, with the ticker index as the variable index being checked. This time, however, the  ticker index was only updated if the subsequent row had a ticker value that did not match the previous row. This eliminated the need for a nested *for* loop. For example, the closing price was determined and the ticker index updated as follows:
+A ticker index variable was created and intialized. The analysis was subsequently carried out by running a single *for* loop over the data rows using *If* conditonals, checking the same conditions as before with the ticker index as the variable being checked. This time, however, the  ticker index was only updated if the subsequent row had a ticker value that did not match the current row. This eliminated the need for a nested *for* loop. For example, the closing price was determined and the ticker index updated as follows:
 
 *If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then*
         
@@ -63,7 +63,7 @@ A ticker index variable was created and intialized. The analysis was subsequentl
  
  ## Results
  
- The resulting tables and messages boxes are as follows:
+ The resulting tables and message boxes are as follows:
  
  **Original Script, 2017 (formatting in seperate script)**
 
@@ -81,14 +81,14 @@ A ticker index variable was created and intialized. The analysis was subsequentl
 
 ![image](https://user-images.githubusercontent.com/79061124/111078218-c6e3a500-84ca-11eb-8422-2586b1622042.png) ![image](https://user-images.githubusercontent.com/79061124/111078232-d4009400-84ca-11eb-8e4c-36bbd687d27c.png)
 
-The results indicate a clear drop in overall stock performance between from 2017 to 2018. In 2017, all stocks except for "TERP" showed positive yearly returns. In 2018, all stocks except for two , "ENPH" and "RUN", had negative yearly returns, with comparible total daily trade volumes. Return on "ENPH" stock, whilst staying positive, decreased from 2017 to 2018. "RUN", however, showed a markedly improved stock performance, with return increasing from -7.2% to +84%. Though 2018 may have been a good year to invest in "RUN", the sample data does not cover enough years to reliably predict future performance.
+The results indicate a clear drop in overall stock performance between 2017 and 2018. In 2017, all stocks except for "TERP" showed positive yearly returns. In 2018, all stocks except for two, "ENPH" and "RUN", had negative yearly returns, with comparable total daily trade volumes. Return on "ENPH" stock, whilst staying positive, decreased from 2017 to 2018. "RUN", however, showed a markedly improved stock performance, with return increasing from -7.2% to +84%. Though 2018 may have been a good year to invest in "RUN", the sample data does not cover enough years to reliably predict future performance.
 
 Run times were drastically improved by the refactored script. The original script ran in ~ 16 seconds for each year, while the refactored script ran in ~ 0.08 seconds, a reduction of several orders of magnitude.
 
 ## Summary
 
-The advantages of refactoring code are numerous. Code can be streamlined for efficiency in terms of size, intensity of processing, improved run time, and ease of understanding for new users. A possible disadvantage is that editting existing code could create additional bugs. Refactoring can also be time-intensive - time is spent editting a code to produce a result that has essentially the same output.
+The advantages of refactoring code are numerous. Code can be streamlined for efficiency in terms of size, intensity of processing, improved run time, and ease of understanding for new users. A possible disadvantage is that editing existing code could create additional bugs. Refactoring can also be time-intensive; time is spent editing a code to produce a result that has essentially the same output.
 
-In this project, the refactored script improved upon the original in several ways. Run times were reduced, and the code was shorter and less resource intensive. The addition of arrays holding the output variables and single variable for the ticker index eliminated the need for complicated, nested *for* loops. Changing the data types for the prices to *single* increased the efficiency of memory use. The disadvantages were limited to the use of more complex logic, but are clearly outweighed by the advantages in terms of readability and run time.
+In this project, the refactored script improved upon the original in several ways. Run times were reduced and the code was shorter and less resource intensive. The addition of arrays holding the output variables and a single variable for the ticker index eliminated the need for complicated, nested *for* loops. Changing the data types for the prices to *single* increased the efficiency of memory use. The disadvantages were limited to the use of more complex logic, but are clearly outweighed by the advantages in terms of readability and run time.
 
 
