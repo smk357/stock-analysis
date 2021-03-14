@@ -65,11 +65,11 @@ A ticker index variable was created and intialized. The analysis was subsequentl
  
  The resulting tables and messages boxes are as follows:
  
- **Original Script,** **2017**
+ **Original Script, 2017**
 
 ![image](https://user-images.githubusercontent.com/79061124/111076923-c9db9700-84c4-11eb-8737-2316e3f06cc2.png) ![image](https://user-images.githubusercontent.com/79061124/111077002-2f2f8800-84c5-11eb-98ae-3cc1ba9a3cf3.png)
 
-**Original Script,** **2018**
+**Original Script, 2018**
 
 ![image](https://user-images.githubusercontent.com/79061124/111077231-2c816280-84c6-11eb-8a62-26d87c927f16.png) ![image](https://user-images.githubusercontent.com/79061124/111077247-41f68c80-84c6-11eb-8eba-1ec7d1669531.png)
 
