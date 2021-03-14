@@ -65,12 +65,30 @@ A ticker index variable was created and intialized. The analysis was subsequentl
  
  The resulting tables and messages boxes are as follows:
  
- **Original Script, 2017**
+ **Original Script, 2017 (formatting in seperate script)**
 
 ![image](https://user-images.githubusercontent.com/79061124/111076923-c9db9700-84c4-11eb-8737-2316e3f06cc2.png) ![image](https://user-images.githubusercontent.com/79061124/111077002-2f2f8800-84c5-11eb-98ae-3cc1ba9a3cf3.png)
 
-**Original Script, 2018**
+**Original Script, 2018 (formatting in seperate script)**
 
 ![image](https://user-images.githubusercontent.com/79061124/111077231-2c816280-84c6-11eb-8a62-26d87c927f16.png) ![image](https://user-images.githubusercontent.com/79061124/111077247-41f68c80-84c6-11eb-8eba-1ec7d1669531.png)
+
+**Refactored Script, 2017**
+
+![image](https://user-images.githubusercontent.com/79061124/111078135-86842700-84ca-11eb-9203-64a73bc0129e.png) ![image](https://user-images.githubusercontent.com/79061124/111078154-94d24300-84ca-11eb-8c55-eaea599a33c0.png)
+
+**Refactored Script, 2018**
+
+![image](https://user-images.githubusercontent.com/79061124/111078218-c6e3a500-84ca-11eb-8422-2586b1622042.png) ![image](https://user-images.githubusercontent.com/79061124/111078232-d4009400-84ca-11eb-8e4c-36bbd687d27c.png)
+
+The results indicate a clear drop in overall stock performance between from 2017 to 2018. In 2017, all stocks except for "TERP" showed positive yearly returns. In 2018, all stocks except for two , "ENPH" and "RUN", had negative yearly returns, with comparible total daily trade volumes. Return on "ENPH" stock, whilst staying positive, decreased from 2017 to 2018. "RUN", however, showed a markedly improved stock performance, with return increasing from -7.2% to +84%. Though 2018 may have been a good year to invest in "RUN", the sample data does not cover enough years to reliably predict future performance.
+
+Run times were drastically improved by the refactored script. The original script ran in ~ 16 seconds for each year, while the refactored script ran in ~ 0.08 seconds, a reduction of several orders of magnitude.
+
+## Summary
+
+The advantages of refactoring code are numerous. Code can be streamlined for efficiency in terms of size, intensity of processing, improved run time, and ease of understanding for new users. A possible disadvantage is that editting existing code could create additional bugs. Refactoring can also be time-intensive - time is spent editting a code to produce a result that has essentially the same output.
+
+In this project, the refactored script improved upon the original in several ways. Run times were reduced, and the code was shorter and less resource intensive. The addition of arrays holding the output variables and single variable for the ticker index eliminated the need for complicated, nested *for* loops. Changing the data types for the prices to *single* increased the efficiency of memory use. The disadvantages were limited to the use of more complex logic, but are clearly outweighed by the advantages in terms of readability and run time.
 
 
