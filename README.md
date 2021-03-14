@@ -5,9 +5,9 @@
 
 The client is a recent finance graduate seeking to assist his parents in assessing the performance of stocks for 12 green energy firms over 2017 and 2018. The goal of the project was twofold. Firstly, to assess the performance of the stocks. Secdonly, to refactor VBA code that processes daily performance data for 12 stocks to compute total daily volume and yearly return on closing price. Code was edited to increase compuational efficiency as indicateded by run time and accuracy of the results.
 
-## Results and Analysis
+## Analysis
 
-### Original Code
+### Original Script
 
 The dataset consisted of daily prices (open, high, low, closing) and volume for 12 stock tickers for each day of the year the stocks were traded, for two years (2017 and 2018). The code was designed to ouput total daily volume and percentage change in closing price for each ticker between the opening trading day and the final trading day of a particular year.
 
@@ -41,7 +41,27 @@ To determine the starting price and ending closing price for the year, an *If* c
 
 The logic follows from the fact that the rows were arranged as blocks for each ticker, with the days of the year going from top to bottom.
 
-The outputs (table and message box showing run time) were as follows:
+The outputs were a table and message box showing run time (see **Results**).
+
+### Refactored Script
+
+The purpose of refactoring was to edit key areas of the code where it could be streamlined for greater processing efficiency. For instance, rather than creating a single variable for the total daily volume, and updating it continuously in a nested *for* loop, a 12 element array was created told hold the total daily volume corresponding to each ticker. Similar arrays were created for starting and ending price, and these were assigned *single* rather than *double* data typles.
+
+A ticker index variable was created and intialized. The analysis was subsequently carried out by running a single *for* loop over the data rows, with *If* conditonals checking the same conditions as before, with the ticker index as the variable index being checked. This time, however, the  ticker index was only updated if the subsequent row had a ticker value that did not match the previous row. This eliminated the need for a nested *for* loop. For example, the closing price was determined and the ticker index updated as follows:
+
+*If Cells(i, 1).Value = tickers(tickerIndex) And Cells(i + 1, 1).Value <> tickers(tickerIndex) Then*
+        
+*tickerEndingPrices(tickerIndex) = Cells(i, 6).Value*
+           
+*tickerIndex = tickerIndex + 1*
+
+ *End If*
+ 
+ Each time the *If* conditional was satisfied, the corresponding array was updated for the current ticker index. Instead of continuously looping over ticker indexes, a single value was stored for the ticker index at a given time.
+ 
+ As before, the outputs were a table and a message box showing run time (see **Results**).
+ 
+ ## Results
 
 **2017**
 
